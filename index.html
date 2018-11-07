@@ -33,10 +33,10 @@
     </section>
     <section class="row controls" v-else>
         <div class="small-12 columns">
-            <button @click="" id="attack">ATTACK</button>
-            <button id="special-attack">SPECIAL ATTACK</button>
-            <button id="heal">HEAL</button>
-            <button id="give-up">GIVE UP</button>
+            <button @click="attack" id="attack">ATTACK</button>
+            <button @click="specialAttack" id="special-attack">SPECIAL ATTACK</button>
+            <button @click="heal" id="heal">HEAL</button>
+            <button @click="giveUp" id="give-up">GIVE UP</button>
         </div>
     </section>
     <section class="row log">
@@ -64,6 +64,26 @@ new Vue({
             this.gameIsRunning = true;
             this.playerHealth = 100;
             this.monsterHealth = 100;
+        },
+        attack: function() {
+            var max = 10;
+            var min = 3;
+            var damage = Math.max(Math.floor(Math.random() * max) + 1, min)
+            this.monsterHealth -= damage;
+
+            max = 12;
+            min = 5;
+            damage = Math.max(Math.floor(Math.random() * max) + 1, min)
+            this.playerHealth -= damage;
+        },
+        specialAttack: function() {
+
+        },
+        heal: function() {
+
+        },
+        giveUp: function() {
+
         }
     }
 });
